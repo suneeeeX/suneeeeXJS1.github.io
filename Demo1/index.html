@@ -7,57 +7,74 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #FFFFFF;
+            transition: background-color 0.5s ease;
             margin: 0;
-            padding: 0;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            border: #000;
         }
+
         .container {
             text-align: center;
-            padding: 20px;
-            background: rgb(255, 255, 255);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 50px;
+            border: 30px solid #000;
             border-radius: 8px;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        #color-name {
+            font-weight: bold;
+            font-size: 1.5rem;
             color: #333;
         }
-        h2 {
-            color: aquamarine;
-        }
-        p {
-            color: #666;
-        }
-        button {
-            padding: 15px 25px;
+
+        #btn-flip {
+            padding: 10px 20px;
+            font-size: 1rem;
             background-color: #007BFF;
-            color: white;
-            border: solid;
+            color: #fff;
+            border: #000;
             border-radius: 5px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
+            cursor: e-resize;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #ffffff;
+
+        #btn-flip:hover {
+            background-color: #0056b3;
+        }
+
+        /* Style for the dynamically generated random word */
+        .random-word {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            pointer-events: none; /* Ensure it doesn't interfere with clicking */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Color Flipper</h1>
-        <p>Current Color: <span id="color-code">#f4f4f4</span></p>
-        <button id="color-flip">Flip Color</button>
+        <p>Current Color: <span id="color-name">#FFFFFF</span></p>
+        <button id="btn-flip">Flip Color</button>
     </div>
 
     <script>
-        const colorCodeElement = document.getElementById('color-code');
-        const colorFlipButton = document.getElementById('color-flip');
+        const colorNameElement = document.getElementById('color-name');
+        const colorFlipButton = document.getElementById('btn-flip');
 
+        // Function to generate a random HEX color
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
             let color = '#';
@@ -67,10 +84,32 @@
             return color;
         }
 
+        // Function to generate random position
+        function getRandomPosition() {
+            const x = Math.floor(Math.random() * window.innerWidth);
+            const y = Math.floor(Math.random() * window.innerHeight);
+            return { x, y };
+        }
+
+        // Event listener for the button click
         colorFlipButton.addEventListener('click', () => {
+            // Generate and apply the new color
             const newColor = getRandomColor();
             document.body.style.backgroundColor = newColor;
-            colorCodeElement.textContent = newColor;
+            colorNameElement.textContent = newColor;
+
+            // Create a random word element
+            const randomWordElement = document.createElement('div');
+            randomWordElement.textContent = 'Your Word Here'; // Replace with words you want to display
+            randomWordElement.classList.add('random-word');
+            
+            // Get the random position
+            const randomPosition = getRandomPosition();
+            randomWordElement.style.left = `${randomPosition.x}px`;
+            randomWordElement.style.top = `${randomPosition.y}px`;
+
+            randomWordElement.style.color = getRandomColor(); // Random color for the word
+            document.body.appendChild(randomWordElement);
         });
     </script>
 </body>
