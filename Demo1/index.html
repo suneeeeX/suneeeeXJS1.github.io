@@ -1,18 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Flipper</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Color Flipper</h1>
-    <p>Current Color: <span id="color-name">#FFFFFF</span></p>
-    <button id="btn-flip">Flip Color</button>
-  </div>
-  <script src="script.js"></script>
+    <div class="container">
+        <h1>Color Flipper</h1>
+        <p>Current Color: <span id="color-code">#f4f4f4</span></p>
+        <button id="color-flip">Flip Color</button>
+    </div>
+
+    <script>
+        const colorCodeElement = document.getElementById('color-code');
+        const colorFlipButton = document.getElementById('color-flip');
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        colorFlipButton.addEventListener('click', () => {
+            const newColor = getRandomColor();
+            document.body.style.backgroundColor = newColor;
+            colorCodeElement.textContent = newColor;
+        });
+    </script>
 </body>
 </html>
-
