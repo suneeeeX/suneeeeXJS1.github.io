@@ -8,6 +8,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: #000;
 }
 
 .container {
@@ -35,7 +36,7 @@ h1 {
   font-size: 1rem;
   background-color: #007BFF;
   color: #fff;
-  border: none;
+  border: #000;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
