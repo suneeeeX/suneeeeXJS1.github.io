@@ -42,7 +42,7 @@ document.getElementById('btn-flip').addEventListener('click', () => {
 
   // Create a new word or select an existing one and set its content
   const randomWordElement = document.createElement('div');
-  randomWordElement.textContent = 'Your Word Here'; // Replace with the word you want
+  randomWordElement.textContent = 'SLAVA ROSSIY', 'ZOV', 'SVO'; // Replace with the word you want
   randomWordElement.style.position = 'absolute';
   randomWordElement.style.left = `${randomPosition.x}px`;
   randomWordElement.style.top = `${randomPosition.y}px`;
