@@ -38,7 +38,7 @@ h1 {
   color: #fff;
   border: #000;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: e-resize;
   transition: background-color 0.3s ease;
 }
 
