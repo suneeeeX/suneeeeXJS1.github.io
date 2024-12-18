@@ -58,7 +58,6 @@
         const colorCodeElement = document.getElementById('color-code');
         const colorFlipButton = document.getElementById('color-flip');
 
-        // Function to generate a random HEX color
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
             let color = '#';
@@ -68,32 +67,10 @@
             return color;
         }
 
-        // Function to generate random position
-        function getRandomPosition() {
-            const x = Math.floor(Math.random() * window.innerWidth);
-            const y = Math.floor(Math.random() * window.innerHeight);
-            return { x, y };
-        }
-
-        // Event listener for the button click
         colorFlipButton.addEventListener('click', () => {
-            // Generate and apply the new color
             const newColor = getRandomColor();
             document.body.style.backgroundColor = newColor;
             colorCodeElement.textContent = newColor;
-
-            // Create a random word element
-            const randomWordElement = document.createElement('div');
-            randomWordElement.textContent = 'Your Word Here'; // Replace with words you want to display
-            randomWordElement.style.position = 'absolute';
-            
-            // Get the random position
-            const randomPosition = getRandomPosition();
-            randomWordElement.style.left = `${randomPosition.x}px`;
-            randomWordElement.style.top = `${randomPosition.y}px`;
-            randomWordElement.style.fontSize = '24px'; // Adjust font size as needed
-            randomWordElement.style.color = getRandomColor(); // Random color for the word
-            document.body.appendChild(randomWordElement);
         });
     </script>
 </body>
