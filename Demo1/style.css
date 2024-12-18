@@ -38,66 +38,10 @@ h1 {
   color: #fff;
   border: #000;
   border-radius: 5px;
-  cursor: e-resize;
+  cursor: e;
   transition: background-color 0.3s ease;
 }
 
 #btn-flip:hover {
   background-color: #0056b3;
-}
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #FFFFFF;
-  transition: background-color 0.5s ease;
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: #000;
-}
-
-.container {
-  text-align: center;
-  padding: 50px;
-  border: 30px solid #000;
-  border-radius: 8px;
-  background-color: #f4f4f4;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-#color-name {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-#btn-flip {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: #007BFF;
-  color: #fff;
-  border: #000;
-  border-radius: 5px;
-  cursor: e-resize;
-  transition: background-color 0.3s ease;
-}
-
-#btn-flip:hover {
-  background-color: #0056b3;
-}
-
-/* Style for the dynamically generated random word */
-.random-word {
-  position: absolute;
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  pointer-events: none; /* Ensure it doesn't interfere with clicking */
 }
