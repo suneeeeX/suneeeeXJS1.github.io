@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Random HEX coded color</title>
+    <title>Random HEX Color & Number Generator</title>
     <style>
+        /* General body styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,51 +16,86 @@
             justify-content: center;
             height: 100vh;
             background-color: #f4f4f4;
+            position: relative; /* Position for top-right button */
         }
+
+        /* Container for the color generator */
         .container {
             text-align: center;
             padding: 20px;
             background: rgb(255, 255, 255);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            border: solid;
             border-radius: 10px;
-            border-color: #333;
+            border: 2px solid #333;
         }
+
         h1 {
             color: #333;
         }
-        h2 {
-            color: aquamarine;
-        }
+
         p {
             color: #666;
         }
+
         button {
             padding: 15px 25px;
             background-color: #007BFF;
             color: white;
-            border: solid;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 20px;
-            border-radius: 5px;
-            border-color: #333;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
-        button:hover {
-            background-color: #00ffc8
 
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Top-right button for random number generator */
+        #random-number-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #28a745; /* Green background */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        #random-number-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Random number display */
+        #random-number {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
+    <!-- Color Generator Container -->
     <div class="container">
-        <h1>Generate color</h1>
+        <h1>Random HEX Color Generator</h1>
         <p>Current Color: <span id="color-code">#f4f4f4</span></p>
         <button id="color-flip">Change Color</button>
     </div>
 
+    <!-- Random Number Button -->
+    <button id="random-number-btn">Generate Random Number</button>
+
+    <!-- Random Number Display -->
+    <div id="random-number"></div>
+
     <script>
+        // HEX Color Generator
         const colorCodeElement = document.getElementById('color-code');
         const colorFlipButton = document.getElementById('color-flip');
 
@@ -76,6 +112,19 @@
             const newColor = getRandomColor();
             document.body.style.backgroundColor = newColor;
             colorCodeElement.textContent = newColor;
+        });
+
+        // Random Number Generator
+        const randomNumberButton = document.getElementById('random-number-btn');
+        const randomNumberDisplay = document.getElementById('random-number');
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 100) + 1; // Generates number between 1 and 100
+        }
+
+        randomNumberButton.addEventListener('click', () => {
+            const number = getRandomNumber();
+            randomNumberDisplay.textContent = `Random Number: ${number}`;
         });
     </script>
 </body>
