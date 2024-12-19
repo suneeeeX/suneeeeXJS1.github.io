@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random HEX Color & Number Generator</title>
     <style>
-
         #profile-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             padding: 15px 30px;
             background-color: #007BFF;
+            color: white;
             border: solid;
             cursor: pointer;
             border-radius: 5px;
             border-color: #000;
             transition: background-color 0.3s ease;
-            top: 20px;
-            left: 20px;
         }
+
+        #profile-btn:hover {
+            background-color: #0056b3;
+        }
+
         .profile {
             text-align: center;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 4px 6px #000;            
+            box-shadow: 0 4px 6px #000;
         }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -72,7 +79,7 @@
 
         #random-number-btn {
             position: absolute;
-            top: 20px;
+            top: 60px;
             right: 20px;
             padding: 10px 20px;
             background-color: #91c09c;
@@ -133,6 +140,8 @@
     </style>
 </head>
 <body>
+    <button id="profile-btn">Profiili</button>
+
     <div class="container">
         <h1>Random HEX Color Generator</h1>
         <p>Current Color: <span id="color-code">#f4f4f4</span></p>

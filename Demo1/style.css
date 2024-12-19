@@ -120,3 +120,20 @@ h1 {
 #new-number:hover {
   background-color: #0056b3;
 }
+#profile-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px 30px;
+  background-color: #007BFF;
+  color: white;
+  border: solid;
+  cursor: pointer;
+  border-radius: 5px;
+  border-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+#profile-btn:hover {
+  background-color: #0056b3;
+}

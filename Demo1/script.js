@@ -14,4 +14,3 @@ document.getElementById('btn-flip').addEventListener('click', () => {
   document.body.style.backgroundColor = newColor;
   document.getElementById('color-name').textContent = newColor;
 });
-
