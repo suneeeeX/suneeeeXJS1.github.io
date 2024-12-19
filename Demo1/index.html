@@ -137,6 +137,13 @@
             margin-top: 10px;
             color: #333;
         }
+
+        /* Warning style */
+        #warning {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -146,6 +153,7 @@
         <h1>Random HEX Color Generator</h1>
         <p>Current Color: <span id="color-code">#f4f4f4</span></p>
         <button id="color-flip">Change Color</button>
+        <p id="warning"></p> <!-- For warning message -->
     </div>
 
     <button id="random-number-btn">Generate Random Number</button>
@@ -164,6 +172,7 @@
         // HEX Color Generator
         const colorCodeElement = document.getElementById('color-code');
         const colorFlipButton = document.getElementById('color-flip');
+        const warningElement = document.getElementById('warning');
 
         function getRandomColor() {
             const letters = '0123456789ABCDEF';
@@ -176,8 +185,17 @@
 
         colorFlipButton.addEventListener('click', () => {
             const newColor = getRandomColor();
+
+            // Check if the generated color is #FFF
+            if (newColor === '#FFFFFF') {
+                warningElement.textContent = 'Warning: The color is #FFF! Skipping...';
+                return; // Stop and do not change color if it's #FFF
+            }
+
+            // Update the color and clear any warning
             document.body.style.backgroundColor = newColor;
             colorCodeElement.textContent = newColor;
+            warningElement.textContent = ''; // Clear warning
         });
 
         // Modal Random Number Generator

@@ -1,0 +1,45 @@
+using System;
+
+namespace RandomHexColorGenerator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random random = new Random();
+            string hexColor;
+            do
+            {
+                hexColor = GetRandomHexColor(random);
+                Console.Clear();
+                Console.WriteLine($"Generated Color: {hexColor}");
+
+                if (hexColor.ToUpper() == "#FFFFFF")
+                {
+                    Console.WriteLine("Warning: The color is #FFFFFF (White)! Skipping...");
+                    // Wait for user to press a key before generating a new color.
+                    Console.ReadKey();
+                }
+                else
+                {
+                    // You can display the color in the console or do any action here.
+                    // For example, we just continue and let the program generate a new color.
+                    Console.WriteLine($"Color applied: {hexColor}");
+                    Console.ReadKey();
+                }
+            }
+            while (true);  // Continue generating random colors until the user stops.
+        }
+
+        static string GetRandomHexColor(Random random)
+        {
+            // Generates a random hex color.
+            string hexColor = "#";
+            for (int i = 0; i < 6; i++)
+            {
+                hexColor += random.Next(0, 16).ToString("X");
+            }
+            return hexColor;
+        }
+    }
+}
