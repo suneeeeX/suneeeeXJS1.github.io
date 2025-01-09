@@ -168,6 +168,7 @@
         </div>
     </div>
 
+
     <script>
         // HEX Color Generator
         const colorCodeElement = document.getElementById('color-code');
@@ -213,7 +214,7 @@
             modal.style.display = 'flex';
             modalNumberDisplay.textContent = getRandomNumber();
         });
-
+ 
         closeModal.addEventListener('click', () => {
             modal.style.display = 'none';
         });
@@ -227,6 +228,11 @@
                 modal.style.display = 'none';
             }
         });
+     
+        profile-btn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+            modalprofileDisplay.textContent = password();
+        })
     </script>
 </body>
 </html>
